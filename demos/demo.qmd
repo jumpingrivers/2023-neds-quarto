@@ -1,0 +1,152 @@
+---
+title: "A very cool title"
+format: html
+jupyter: neds-quarto
+---
+
+
+### Bold, italic, strikethrough and links
+
+In _my_ opinion, [Mario Kart 64](https://en.wikipedia.org/wiki/Mario_Kart_64), is ~~not~~ the **best** video game that has __*ever*__ been made.
+
+### Code formatting
+
+My favourite language is `python`.
+
+### Bullets and numbered lists
+
+My favourite types of penguin are:
+
+* Adelie
+- Rockhopper
+    + Northern
+    + Southern
+- Gentoo
++ Chinstrap
+
+However, in order this would be
+
+1. Chinstrap
+1. Gentoo
+1. Rockhopper
+    1. Northern
+    1. Southern
+1. Adelie
+
+
+This is an okay penguin:
+
+![](adelie.jpg)
+
+
+
+## Code chunks
+
+```{python}
+import pandas as pd
+
+mario_kart = pd.read_csv(
+    "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-25/records.csv"
+)
+```
+
+### Fenced code chunk 
+
+```{python}
+#| echo: fenced
+mario_kart.head()
+```
+
+### Order matters!
+
+```{python}
+#| error: true
+#| echo: true
+x
+```
+
+```{python}
+#| echo: true
+x = 5
+```
+
+```{python}
+#| echo: true
+x
+```
+
+
+### Hide code cell
+
+```{python}
+#| echo: false
+mario_kart.head()
+```
+
+
+### Fold code cell
+
+```{python}
+#| echo: fenced
+#| code-fold: true
+import numpy as np
+import pandas as pd
+```
+
+## Plots
+
+```{python}
+#| fig-cap: "Progress of Rainbow Road world records, with and without allowing shortcuts."
+#| fig-width: 8
+#| warning: false
+import plotly.express as px
+
+# Filter the data
+rainbow_road = mario_kart.loc[
+        (mario_kart["track"] == "Rainbow Road") &
+        (mario_kart["type"] == "Three Lap")
+].reset_index()
+
+# Plot the data
+px.line(
+    rainbow_road,
+    x="date",
+    y="time",
+    color="shortcut",
+    title="Progress of Rainbow Road N64 World Records",
+    line_shape="hv",
+    markers="."
+)
+```
+
+
+## Tables
+
+- Markdown syntax
+
+``` md
+| fruit  | count  | color  |
+|--------|--------|--------|
+| banana | 5      | yellow |
+| apple  | 6      | red    |
+| pear   | 2      | green  |
+```
+
+- Convert to markdown
+
+```{python}
+#| echo: fenced
+#| eval: false
+#| tbl-cap: "Table of fruits"
+from IPython.display import Markdown
+from tabulate import tabulate
+
+table = [
+    ["banana", 5, "yellow"],
+    ["apple", 6, "red"],
+    ["pear", 2, "green"],
+]
+Markdown(
+    tabulate(table, headers=["fruit", "count", "color"])
+)
+```
