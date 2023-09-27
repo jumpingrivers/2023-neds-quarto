@@ -1,0 +1,48 @@
+---
+title: "A report on Penguins"
+author: "Me"
+format: html
+---
+
+## Background
+
+The **Adélie penguin (*Pygoscelis adeliae*)** 🐧 is a species of [penguin](https://en.wikipedia.org/wiki/Penguin) common along the entire coast of the [Antarctic](https://en.wikipedia.org/wiki/Antarctic) continent, which is the only place where it is found.
+
+A data set containing info on adelie penguins can be found [here](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv).
+
+![](adelie.jpg)
+
+## Analysis
+
+```{python}
+#| echo: false
+#| warning: false
+import pandas as pd
+import plotly.express as px
+```
+
+```{python}
+#| echo: false
+#| warning: false
+penguins = pd.read_csv(
+    'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'
+).dropna()
+```
+
+Here is a data set containing information of Adelie and other species of penguin across 2007, 2008 and 2009.
+
+```{python}
+#| echo: fenced
+#| code-fold: true
+# Add table code here
+
+```
+
+This plot shows the distribution of bill length for 3 species of male and female of penguins. There is also a line over plotted to show the average bill length.
+
+```{python}
+#| echo: fenced
+#| code-fold: true
+# Add plotting code here
+
+```
