@@ -1,7 +1,6 @@
 ---
 title: "A very cool title"
 format: html
-jupyter: neds-quarto
 ---
 
 
