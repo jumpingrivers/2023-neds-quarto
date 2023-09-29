@@ -7,7 +7,7 @@ View the slides [here](https://jumpingrivers.github.io/2023-neds-quarto/part1.ht
 
 To run this workshop you will need an installation of Quarto. You can install Quarto [here](https://quarto.org/docs/get-started/).
 
-The workhop python dependencies can be installed by running:
+The workshop python dependencies can be installed by running:
 
 ```
 python3 -m pip install jupyter plotly tabulate jrpyvis
